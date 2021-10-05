@@ -6,9 +6,8 @@ int main()
 
     while(1)
     {
-         //Menu_Bang_Cuu_Chuong(); //Bai 1
-         //Menu_Phep_Toan(); //Bai 2
-         //Menu_Chon_Hinh();//Bai 3
+        //(Bai 3 co tham khao internet: hinh tam giac rong va tam giac dac)
+        Menu_Tong();
     }
     getch();
     return 0;
@@ -210,6 +209,7 @@ void Hinh_Chu_Nhat_Dac(){
 }
 
 void Hinh_Tam_Giac_Can_Rong(){
+    //Tham khao internet
     int h;
     printf("Vui long nhap chieu cao: "); scanf("%d", &h);
      for(int i = 1; i <= h; ++i)
@@ -224,6 +224,7 @@ void Hinh_Tam_Giac_Can_Rong(){
 }
 
 void Hinh_Tam_Giac_Can_Dac(){
+    //Tham khao internet
      int h;
      printf("Vui long nhap chieu cao: "); scanf("%d", &h);
       for(int i = 1; i <= h; ++i)
@@ -234,4 +235,36 @@ void Hinh_Tam_Giac_Can_Dac(){
         }
         putchar('\n');
      }
+}
+
+//Bai 4
+void Menu_Tong(){
+    int chon;
+    printf("Vui long chon chuc nang:\n");
+    printf("[1] Cuu chuong\n");
+    printf("[2] Phep toan\n");
+    printf("[3] Hinh hoc\n");
+    printf("[4] Thoat\n");
+    printf("Chon: ");
+    scanf("%d", &chon);
+    switch (chon)
+    {
+        case 1:
+            printf("[Cuu chuong]\n");
+            Menu_Bang_Cuu_Chuong(); //Bai 1
+            break;
+        case 2:
+            printf("[Phep toan]\n");
+            Menu_Phep_Toan(); //Bai 2
+            break;
+        case 3:
+            printf("[Hinh hoc]\n");
+            Menu_Chon_Hinh(); //Bai 3 (Co tham khao internet: hinh tam giac rong va tam giac dac)
+            break;
+        case 4:
+            printf("[Nhan Enter de thoat]\n");
+            exit(0);
+            break;
+        default: break;
+    }
 }
