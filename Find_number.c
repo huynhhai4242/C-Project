@@ -36,9 +36,14 @@ void Xuat(int* max, int*a, int* so_sanh){
             vi_tri[dem] = i;
         }
     }
+    
     if(dem > 0){
         printf("Da tim thay so %d tai vi tri: ", *so_sanh);
+    }else
+    {
+        printf("Khong tim thay so %d", *so_sanh);
     }
+    
     for (int i = 1; i <= dem; i++)
     {
         if(i==dem)
