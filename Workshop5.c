@@ -108,15 +108,24 @@ void Doc_chu(int* so)
     printf("\n");
 
     //Doc chu
-    if(*so >= 100)
+
+    if(*so <= 9 && *so >= 0)
     {
         printf("Doc so: ");
-        Hang_Tram(&a, &mang_dao);
+        Hang_don_vi(&phan_nguyen);
     }
-    if(*so < 100)
+    else
     {
-        printf("Doc so: ");
-        Hang_Chuc(&a, &mang_dao);
+        if(*so >= 100)
+        {
+            printf("Doc so: ");
+            Hang_Tram(&a, &mang_dao);
+        }
+        if(*so < 100 && *so >= 10)
+        {
+            printf("Doc so: ");
+            Hang_Chuc(&a, &mang_dao);
+        }
     }
 }
 void Hang_Tram(int* a, int* mang_dao)
@@ -424,6 +433,53 @@ void Hang_Chuc(int* a, int* mang_dao)
         }
     }
 }
+void Hang_don_vi(int* so)
+{
+    switch (*so)
+    {
+    case 0:
+        printf("khong");
+        break;
+    case 1:
+        printf("muoi");
+        break;
+
+    case 2:
+        printf("hai");
+        break;
+
+    case 3:
+        printf("ba");
+        break;
+
+    case 4:
+        printf("bon");
+        break;
+
+    case 5:
+        printf("nam");
+        break;
+
+    case 6:
+        printf("sau");
+        break;
+
+    case 7:
+        printf("bay");
+        break;
+
+    case 8:
+        printf("tam");
+        break;
+
+    case 9:
+        printf("chin");
+        break;
+    default:
+        break;
+    }
+}
+
 
 //Bai 2
 //Qui doi co so: Thap phan -> nhi phan
