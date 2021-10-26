@@ -541,48 +541,35 @@ void Xu_Ly_Chuoi(char* chuoi)
 //Bang dien tu FPT
 void Bang_dien_tu()
 {
-    //F
-    for(int i=0; i<5; i++)
-    {
-        printf("*");
-    }
-    printf("\n*\n");
-    for(int i=0; i<3; i++)
-    {
-        printf("*");
-    }
-    printf("\n*");
-    printf("\n*");
-    printf("\n\n");
+    printf("\n");
+    char F1[] = {'*','*','*','*','*',' ',' ','*','*','*','*','*',' ',' ','*','*','*','*','*', '\0'};
+    char F2[] = {'*',' ',' ',' ',' ',' ',' ','*',' ',' ',' ','*',' ',' ',' ',' ','*',' ',' ', '\0'};
+    char F3[] = {'*','*','*',' ',' ',' ',' ','*','*','*','*','*',' ',' ',' ',' ','*',' ',' ', '\0'};
+    char F4[] = {'*',' ',' ',' ',' ',' ',' ','*',' ',' ',' ',' ',' ',' ',' ',' ','*',' ',' ', '\0'};
+    char F5[] = {'*',' ',' ',' ',' ',' ',' ','*',' ',' ',' ',' ',' ',' ',' ',' ','*',' ',' ', '\0'};
 
-    //P
-    for(int i=0; i<5; i++)
+    for(int i = 0; i <= 19; i++)
     {
-        printf("*");
-    }
-    printf("\n*   *\n");
-    for(int i=0; i<5; i++)
-    {
-        printf("*");
-    }
-    printf("\n*");
-    printf("\n*");
-    printf("\n\n");
-
-    //T
-    for(int i=0; i<5; i++)
-    {
-        printf("*");
+        printf("%c", F1[i]);
     }
     printf("\n");
-    int f = 0;
-    while (f<4)
+    for(int i = 0; i <= 19; i++)
     {
-        f++;
-        for(int i=0; i<2; i++)
-        {
-            printf(" ");
-        }
-        printf("*\n");
+        printf("%c", F2[i]);
+    }
+    printf("\n");
+    for(int i = 0; i <= 19; i++)
+    {
+        printf("%c", F3[i]);
+    }
+    printf("\n");
+    for(int i = 0; i <= 19; i++)
+    {
+        printf("%c", F4[i]);
+    }
+    printf("\n");
+    for(int i = 0; i <= 19; i++)
+    {
+        printf("%c", F5[i]);
     }
 }
