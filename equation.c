@@ -154,7 +154,7 @@ void Bac_hai(float *a, float *b, float *c, float *delta)
     gt_x = (-*b) / (2 * (*a));
     gt_y = (-*delta) / (4 * (*a));
 
-    if (*a > 0)
+    if (*a < 0)
     {
         printf("gia tri lon nhat y= %f tai x=%f ", gt_y, gt_x);
     }
