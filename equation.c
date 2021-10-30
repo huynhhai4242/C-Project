@@ -7,20 +7,15 @@ int main()
 {
     while (1)
     {
-        printf("\n");
-        printf("\n");
-       
+        int chon_pt;
+        float a, b, c, d, k, delta;
         printf("[1] Phuong trinh bac 1\n");
         printf("[2] Phuong trinh bac 2\n");
         printf("[3] Phuong trinh bac 3\n");
         printf("[4] Phuong trinh trung phuong\n");
         printf("[5] Thoat\n");
-        
-        int chon_pt;
-        float a, b, c, d, k, delta;
         printf("Chon: ");
         scanf("%d", &chon_pt);
-
         switch (chon_pt)
         {
         // Bac 1
@@ -31,7 +26,7 @@ int main()
             printf("Nhap b: ");
             scanf("%f", &b);
             Bac_mot(&a, &b, &c);
-            printf("\n");
+            printf("\n\n");
             break;
 
         // Bac 2
@@ -43,8 +38,15 @@ int main()
             scanf("%f", &b);
             printf("Nhap c: ");
             scanf("%f", &c);
-            Bac_hai(&a, &b, &c, &delta);
-            printf("\n");
+            if(a == 0)
+            {
+                printf("Ban da nhap a = 0 nen chuong trinh se duoc dua ve dang bac 1 ");
+                Bac_mot(&b, &c, &c);
+            }else
+            {
+                Bac_hai(&a, &b, &c, &delta);
+            }
+            printf("\n\n");
             break;
 
         // Bac 3
@@ -58,11 +60,18 @@ int main()
             scanf("%f", &c);
             printf("Nhap d: ");
             scanf("%f", &d);
-            Bac_ba(&a, &b, &c, &d, &k, &delta);
-            printf("\n");
+            if(a == 0)
+            {
+                printf("Ban da nhap a = 0 nen chuong trinh se duoc dua ve dang bac 2 ");
+                Bac_hai(&b, &c, &d, &delta);
+            }else
+            {
+                Bac_ba(&a, &b, &c, &d, &k, &delta);
+            }
+            printf("\n\n");
             break;
 
-        // Bac 4
+        // Bac 4 trung phuong
         case 4:
             printf("[Ban da chon phuong trinh trung phuong: ax^4 + bx^2 + c= 0]\n");
             printf("Nhap a: ");
@@ -71,8 +80,16 @@ int main()
             scanf("%f", &b);
             printf("Nhap c: ");
             scanf("%f", &c);
-            Bac_bon_trung_phuong(&a, &b, &c, &delta);
-            printf("\n");
+            if(a == 0)
+            {
+                printf("Ban da nhap a = 0 nen chuong trinh se duoc dua ve dang bac 2 ");
+                int f = 0;
+                Bac_hai(&b, &f, &c, &delta);
+            }else
+            {
+                Bac_bon_trung_phuong(&a, &b, &c, &delta);
+            }
+            printf("\n\n");
             break;
         case 5:
             printf("Nhan Enter de thoat!");
