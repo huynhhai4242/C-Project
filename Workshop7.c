@@ -112,18 +112,21 @@ void Bai1(int *m, int *n, int ma_tran1[10][10], int ma_tran_kq[10][10])
     if (so_hang != 0 && so_cot != 0 && so_hang != 1 && so_cot != 1)
     {
         printf("Ma tran cua ban co dang: %dx%d\n", so_hang, so_cot);
-    }
-
-    for (int i = 0; i < so_hang; i++)
-    {
-        for (int j = 0; j < so_cot; j++)
+        for (int i = 0; i < so_hang; i++)
         {
-            printf("Hang %d cot %d: ", i, j);
-            scanf("%d", &ma_tran1[i][j]);
-            ma_tran_kq[i][j] = ma_tran1[i][j];
+            for (int j = 0; j < so_cot; j++)
+            {
+                printf("Hang %d cot %d: ", i, j);
+                scanf("%d", &ma_tran1[i][j]);
+                ma_tran_kq[i][j] = ma_tran1[i][j];
+            }
         }
+        isMatran1 = true;
     }
-    isMatran1 = true;
+    else
+    {
+        printf("Ma tran khong hop le!\n");
+    }
 }
 
 //In ra ma tran mxn
@@ -159,28 +162,31 @@ void Bai3(int *m, int *n, int *p, int *q, int ma_tran1[10][10], int ma_tran2[10]
         if (so_hang != 0 && so_cot != 0 && so_hang != 1 && so_cot != 1)
         {
             printf("Ma tran cua ban co dang: %dx%d\n", so_hang, so_cot);
-        }
-
-        for (int i = 0; i < so_hang; i++)
-        {
-            for (int j = 0; j < so_cot; j++)
+            for (int i = 0; i < so_hang; i++)
             {
-                printf("Hang %d cot %d: ", i, j);
-                scanf("%d", &ma_tran2[i][j]);
+                for (int j = 0; j < so_cot; j++)
+                {
+                    printf("Hang %d cot %d: ", i, j);
+                    scanf("%d", &ma_tran2[i][j]);
+                }
             }
-        }
-        printf("Ket qua MA TRAN 1 + MA TRAN 2:\n");
-        for (int i = 0; i < so_hang; i++)
-        {
-            for (int j = 0; j < so_cot; j++)
+            printf("Ket qua MA TRAN 1 + MA TRAN 2:\n");
+            for (int i = 0; i < so_hang; i++)
             {
-                ma_tran_kq[i][j] = ma_tran1[i][j] + ma_tran2[i][j];
-                printf("%d ", ma_tran_kq[i][j]);
+                for (int j = 0; j < so_cot; j++)
+                {
+                    ma_tran_kq[i][j] = ma_tran1[i][j] + ma_tran2[i][j];
+                    printf("%d ", ma_tran_kq[i][j]);
+                }
+                printf("\n");
             }
-            printf("\n");
+        }else
+        {
+            printf("Ma tran khong hop le!\n");
         }
-    }else
+    }
+    else
     {
-        printf("Khong the cong 2 ma tran nay!");
+        printf("Khong the cong 2 ma tran nay!\n");
     }
 }
