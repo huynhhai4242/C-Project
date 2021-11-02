@@ -4,15 +4,13 @@
 
 //Author: Huynh Chi Hai CE160053
 //02-11-2021
-//Workshop7 - Ma tran
+//Workshop 7 - Ma tran
 bool isMatran1 = false;
 int main()
 {
-    system("cls");
     char chon;
     char chon_con;
-    int m = 0, n = 0,
-        p = 0, q = 0;
+    int m = 0, n = 0, p = 0, q = 0;
     int ma_tran1[10][10];
     int ma_tran2[10][10];
     int ma_tran_kq[10][10];
