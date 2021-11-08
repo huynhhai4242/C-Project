@@ -7,15 +7,22 @@ int main()
 {
     while (1)
     {
-        int chon_pt;
-        float a, b, c, d, k, delta;
+        float a, b, c, d, k, delta,x,x1,x2;
+        printf ("__________________________________________\n\n");
         printf("[1] Phuong trinh bac 1\n");
         printf("[2] Phuong trinh bac 2\n");
         printf("[3] Phuong trinh bac 3\n");
         printf("[4] Phuong trinh trung phuong\n");
-        printf("[5] Thoat\n");
+        printf ("[5] he phuong trinh bac nhat 2 an\n");
+        printf ("[6] he phuong trinh bac nhat 3 an\n");
+        printf ("[7] bat phuong trinh bac 2\n");
+        printf ("[8] Thoat\n");
+        printf ("__________________________________________\n\n");
         printf("Chon: ");
+        int chon_pt;
         scanf("%d", &chon_pt);
+        printf ("\n\n");
+
         switch (chon_pt)
         {
         // Bac 1
@@ -42,7 +49,8 @@ int main()
             {
                 printf("Ban da nhap a = 0 nen chuong trinh se duoc dua ve dang bac 1 ");
                 Bac_mot(&b, &c, &c);
-            }else
+            }
+            else
             {
                 Bac_hai(&a, &b, &c, &delta);
             }
@@ -64,7 +72,8 @@ int main()
             {
                 printf("Ban da nhap a = 0 nen chuong trinh se duoc dua ve dang bac 2 ");
                 Bac_hai(&b, &c, &d, &delta);
-            }else
+            }
+            else
             {
                 Bac_ba(&a, &b, &c, &d, &k, &delta);
             }
@@ -85,16 +94,42 @@ int main()
                 printf("Ban da nhap a = 0 nen chuong trinh se duoc dua ve dang bac 2 ");
                 int f = 0;
                 Bac_hai(&b, &f, &c, &delta);
-            }else
+            }
+            else
             {
                 Bac_bon_trung_phuong(&a, &b, &c, &delta);
             }
             printf("\n\n");
             break;
         case 5:
+            printf ("[ Ban da chon he phuong trinh bac nhat 2 an\n");
+            he_2_an ();
+            break;
+        case 6:
+            printf ("[ Ban da chon he phuong trinh bac nhat 3 an\n");
+            he_3_an ();
+            break;
+
+        case 7:
+        {
+            printf ("ban da chon bat phuong trinh bac 2 \n ");
+            printf ("moi ban nhap he so cua phuong trinh:\n");
+            printf("Nhap a: ");
+            scanf("%f", &a);
+            printf("Nhap b: ");
+            scanf("%f", &b);
+            printf("Nhap c: ");
+            scanf("%f", &c);
+            bat_Pt_bac_hai(&a, &b, &c);
+            break;
+
+        }
+
+        case 8:
             printf("Nhan Enter de thoat!");
             exit(0);
         default:
+            printf ("moi ban nhap lai\n");
             break;
         }
     }
@@ -102,8 +137,283 @@ int main()
     getch();
     return 0;
 }
+
+
 //________________________________________________________________________________________________________________________________________
 
+// bat phuong trinh bac hai
+
+void bat_Pt_bac_hai(float *a, float *b, float *c)
+{
+
+    float x,x1,x2,delta;
+
+    delta = pow((*b), 2) - (4 * ((*a) * (*c)));
+
+    if (delta == 0)
+    {
+        x = (-*b) / (2 * (*a));
+
+    }
+    else
+    {
+        x1 = (-*b + sqrt(delta)) / (2 * (*a));
+        x2 = (-*b - sqrt(delta)) / (2 * (*a));
+    }
+
+    if (x2 <= x1)
+    {
+        float tm = x2;
+        x2 = x1;
+        x1 = tm;
+    }
+    while (1==1)
+    {
+
+
+        int chon_pt;
+        printf ("moi ban chon loai phuong trinh can tinh\n");
+        printf("[1] ax^2 + bx + c > 0\n");
+        printf("[2] ax^2 + bx + c < 0\n");
+        printf("[3] ax^2 + bx + c >= 0\n");
+        printf("[4] ax^2 + bx + c <=0\n");
+        printf("[5] Thoat\n");
+        printf("Chon: ");
+        scanf("%d", &chon_pt);
+
+        if (chon_pt==1)
+
+        {
+            printf(" %.2fx^2 + %.2fx + %.2f > 0\n",*a,*b,*c);
+            if (delta <0)
+            {
+                if (*a >0)
+                    printf (" All real numbers\n\n");
+                else if (*a<0)
+                    printf (" No solution");
+            }
+            else if (delta==0)
+            {
+                printf ("x different %f\n\n",x);
+            }
+            else  if  (delta>0)
+            {
+                if (*a<0)
+                {
+                    printf ("%f < x < %f\n\n",x1,x2);
+                }
+                else if (*a>0)
+                {
+                    printf ("x < %f and %f < x\n\n", x1,x2);
+                }
+            }
+
+        } //case1
+        else if (chon_pt==2)
+        {
+            printf(" %.2fx^2 + %.2fx + %.2f < 0\n",*a,*b,*c);
+            if (delta <0)
+            {
+                if (*a <0)
+                    printf (" All real numbers\n\n");
+                else if (*a>0)
+                    printf (" No solution\n");
+            }
+            else if (delta==0)
+            {
+                printf ("x different %f\n\n",x);
+            }
+            else  if  (delta>0)
+            {
+                if (*a>0)
+                {
+                    printf ("%f < x < %f\n\n",x1,x2);
+                }
+                else if (*a<0)
+                {
+                    printf ("x < %f and %f < x\n\n", x1,x2);
+                }
+            }
+
+        } //case 2
+
+        else if (chon_pt==3)
+        {
+            printf(" %.2fx^2 + %.2fx + %.2f >= 0\n",*a,*b,*c);
+            if (delta <0)
+            {
+                if (*a >0)
+                    printf (" All real numbers\n\n");
+                else if (*a<0)
+                    printf (" No solution");
+            }
+            else if (delta==0)
+            {
+                printf ("All real numbers\n\n");
+            }
+            else  if  (delta>0)
+            {
+                if (*a<0)
+                {
+                    printf ("%f <= x <= %f\n\n",x1,x2);
+                }
+                else if (*a>0)
+                {
+                    printf ("x <= %f and %f <= x\n\n", x1,x2);
+                }
+            }
+
+        } //case3
+        else if (chon_pt==4)
+        {
+            printf(" %.2fx^2 + %.2fx + %.2f <= 0\n",*a,*b,*c);
+            if (delta <0)
+            {
+                if (*a <0)
+                    printf (" All real numbers\n\n");
+                else if (*a>0)
+                    printf (" No solution\n\n");
+            }
+            else if (delta==0)
+            {
+                printf ("All real numbers\n\n",x);
+            }
+            else  if  (delta>0)
+            {
+                if (*a>0)
+                {
+                    printf ("%f < x < %f\n\n",x1,x2);
+                }
+                else if (*a<0)
+                {
+                    printf ("x < %f and %f < x\n\n", x1,x2);
+                }
+            }
+
+        } //case 4
+        else if (chon_pt==5)
+        {
+            printf("tro ve menu chinh\n\n");
+            break;
+        }
+        else printf ("moi ban nhap lai \n");
+    }
+
+}//cua void
+
+
+//_________________________________________________________________________________________________________________________________________
+//he phuong trinh 2 an so
+void he_2_an()
+{
+    float a1, b1, c1, a2, b2, c2;
+    float Del, Delx, Dely, x, y;
+    printf("al*x + b1*y = cl\n");
+    printf ("a2*x + b2*y = c2\n");
+    printf("\nNhap al: ");
+    scanf("%f",&a1);
+    printf("\nNhap bl: ");
+    scanf("\n%f",&b1);
+    printf("\nNhap cl: ");
+    scanf("\n%f",&c1);
+    printf("\nNhap a2: ");
+    scanf("\n%f",&a2);
+    printf("\nNhap b2: ");
+    scanf("\n%f",&b2);
+    printf("\nNhap c2: ");
+    scanf("\n%f",&c2);
+    Del = a1 * b2 - a2 * b1;
+    Delx = c1 * b2 - c2 * b1;
+    Dely = a1 * c2 - a2 * c1;
+    printf ("\n\n");
+    printf ("%.2fx + %2.fy = %2.f\n",a1, b1, c1);
+    printf ("%.2fx + %2.fy = %2.f\n",a2, b2, c2);
+    printf ("\n\n");
+    if (Del == 0)
+    {
+        if (Delx + Dely == 0)
+        {
+            printf("He phuong trinh co vo so nghiem\n\n");
+        }
+        else
+        {
+            printf("He phuong trinh vo nghiem\n\n");
+        }
+    }
+    else
+    {
+        x = Delx / Del;
+        y = Dely / Del;
+        printf("He phuong trinh co nghiem x = %f", x);
+        printf("\nHe phuong trinh co nghiem y = %f\n\n", y);
+    }
+}
+
+//___________________________________________________________________________________________________________________________
+
+//he phuong trinh 3 an
+
+void he_3_an()
+{
+    float a11, a12, a13, a21, a22, a23, a31, a32, a33, b1, b2, b3, x, y, z, d, dx, dy, dz;
+    printf("a1*x + b1*y + c1*z = d1\n");
+    printf("a2*x + b2*y + c2*z = d2\n");
+    printf("a3*x + b3*y + c3*z = d3\n");
+
+    printf("nhap cac he so phuong trinh 1:\n");
+    printf("\nNhap al: ");
+    scanf_s("%f", &a11);
+    printf("\nNhap b1: ");
+    scanf_s("%f",  &a12);
+    printf("\nNhap c1: ");
+    scanf_s("%f", &a13);
+    printf("\nNhap d1: ");
+    scanf_s("%f",&b1);
+
+    printf("nhap cac he so phuong trinh 2:\n");
+    printf("\nNhap a2: ");
+    scanf_s("%f", &a21);
+    printf("\nNhap b2: ");
+    scanf_s("%f",  &a22);
+    printf("\nNhap c2: ");
+    scanf_s("%f", &a23);
+    printf("\nNhap d2: ");
+    scanf_s("%f",&b2);
+
+    printf("nhap cac he so phuong trinh 3:\n");
+    printf("\nNhap a3: ");
+    scanf_s("%f", &a31);
+    printf("\nNhap b3: ");
+    scanf_s("%f",  &a32);
+    printf("\nNhap c3: ");
+    scanf_s("%f", &a33);
+    printf("\nNhap d3: ");
+    scanf_s("%f",&b3);
+
+
+    d = a11*a22*a33 + a12*a23*a31 + a21*a32*a13 - a13*a22*a31 - a12*a21*a33 - a11*a32*a23;
+    dx = b1*a22*a33 + a12*a23*b3 + b2*a32*a13 - a13*a22*b3 - a12*b2*a33 - a23*a32*b1;
+    dy = a11*b2*a33 + b1*a23*a31 + a21*b3*a13 - a13*b2*a31 - b1*a21*a33 - a23*b3*a11;
+    dz = a11*a22*b3 + a12*b2*a31 + a21*a32*b1 - b1*a22*a31 - a12*a21*b3 - b2*a32*a11;
+    printf ("\n\n");
+    printf ("%.2fx + %2.fy + %2.fz = %2.f\n",a11, a12, a13,b1);
+    printf ("%.2fx + %2.fy + %2.fz = %2.f\n",a21, a22, a23,b2);
+    printf ("%.2fx + %2.fy + %2.fz = %2.f\n",a31, a32, a33,b3);
+    printf ("\n\n");
+    if (d == 0)
+    {
+        if ((dx == 0) && (dy == 0) && (dz == 0))
+            printf("he vo so nghiem\n\n");
+        else printf("he vo nghiem\n\n");
+    }
+    else
+    {
+        printf("he co nghiem la:\n x=%.2f \n y=%.2f \n z=%.2f\n\n", dx / d, dy / d, dz / d);
+
+    }
+}
+
+//___________________________________________________________________________________________________________________________
 // Phuong trinh bac 1
 void Bac_mot(float *a, float *b, float *c)
 {
@@ -335,3 +645,4 @@ void Bac_bon_trung_phuong(float *a, float *b, float *c, float *delta)
         }
     }
 }
+
