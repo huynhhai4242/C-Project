@@ -7,16 +7,16 @@ int main()
 {
     while (1)
     {
-        float a, b, c, d, k, delta,x,x1,x2;
+        float a, b, c, d, k, delta, x, x1, x2;
         printf ("__________________________________________\n\n");
         printf("[1] Phuong trinh bac 1\n");
         printf("[2] Phuong trinh bac 2\n");
         printf("[3] Phuong trinh bac 3\n");
         printf("[4] Phuong trinh trung phuong\n");
-        printf ("[5] he phuong trinh bac nhat 2 an\n");
-        printf ("[6] he phuong trinh bac nhat 3 an\n");
-        printf ("[7] bat phuong trinh bac 2\n");
-        printf ("[8] Thoat\n");
+        printf("[5] He phuong trinh bac nhat 2 an\n");
+        printf("[6] He phuong trinh bac nhat 3 an\n");
+        printf("[7] Bat phuong trinh bac 2\n");
+        printf("[8] Thoat\n");
         printf ("__________________________________________\n\n");
         printf("Chon: ");
         int chon_pt;
@@ -645,4 +645,3 @@ void Bac_bon_trung_phuong(float *a, float *b, float *c, float *delta)
         }
     }
 }
-
