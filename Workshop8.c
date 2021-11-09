@@ -1,11 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+//Author: Huynh Chi Hai CE160053
+//Time: 09/11/2021
+//Task: Workshop8
 int main()
 {
     int matrix[100][100];
     int m, n;
-
     char chon, new_file;
 
     FILE *check = fopen("MT.txt", "r");
@@ -74,6 +76,7 @@ int main()
     return 0;
 }
 
+//Input matrix and save in txt file
 void intput_matrix(int*m, int*n, int matrix[100][100])
 {
     FILE *f = fopen("MT.txt", "w");
@@ -91,6 +94,7 @@ void intput_matrix(int*m, int*n, int matrix[100][100])
     printf("Import is complete\n");
 }
 
+//Get matrix of txt file and printf matrix in console
 void read_matrix()
 {
     FILE *read_file = fopen("MT.txt", "r");
