@@ -45,7 +45,7 @@ int main()
         printf("  |3| Exit\n");
         printf("Choose: ");
         scanf("%c", &chon);
-        fflush(stdin);
+        getchar();
         switch(chon)
         {
         case '1':
