@@ -20,3 +20,5 @@ int main()
     printf(" = %.2f", s);
     return 0;
 }
+
+// OUPUT: S(n) = 1/1 + 1/3 + 1/5 = 1.53
